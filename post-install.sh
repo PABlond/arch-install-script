@@ -28,6 +28,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "*************"
 echo "Creating user"
+pacman -S sudo
 useradd -m -g wheel -s /bin/bash login
 passwd login
 usermod -aG sudo login
@@ -41,7 +42,7 @@ pacman -S nvidia nvidia-settings
 echo "*****************"
 echo "Node installation"
 pacman -S nodejs npm
-npm i -g n yarn gatsby
+npm i -g n yarn
 n lts
 
 echo "**********************************"
@@ -53,7 +54,7 @@ usermod -aG docker login
 
 echo "***********************"
 echo "Latte Dock installation"
-sudo pacman -S cmake extra-cmake-modules python plasma-framework plasma-desktop
+pacman -S git cmake extra-cmake-modules python plasma-framework plasma-desktop
 git clone https://github.com/KDE/latte-dock.git
 cd latte-dock
 chmod +x install.sh
@@ -64,6 +65,13 @@ rm -rf latte-dock
 echo "**************************"
 echo "Infosec tools installation"
 pacman -S nmap tcpdump wireshark-qt openssh openvpn sqlmap
+mkdir /home/login/sec
+mkdir /home/login/sec/tools
+cd /home/login/sec/tools
+git clone https://github.com/PABlond/Kali-container-for-pentest.git kali
+cd kali
+docker-compose up -d
+cd $USER
 
 echo "**************************"
 echo "Google Chrome installation"
