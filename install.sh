@@ -38,7 +38,7 @@ echo "******************"
 echo "Starting install.."
 pacman -S reflector
 reflector -c "FR" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
-pacstrap /mnt base base-devel linux linux-firmware net-tools wget sudo
+pacstrap /mnt base base-devel linux linux-firmware net-tools wget sudo nano
 
 echo "**************"
 echo "Generate fstab"
