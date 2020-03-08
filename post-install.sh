@@ -31,8 +31,8 @@ echo "Creating user"
 pacman -S sudo
 useradd -m -g wheel -s /bin/bash login
 passwd login
-usermod -aG sudo login
-
+echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
+ 
 pacman -S firefox ark vlc qt4 dolphin git code konsole libreoffice-still python-virtualenv
 
 echo "***************************"
