@@ -18,6 +18,7 @@ echo "KDE installation"
 pacman -S xorg xorg-{xinit,server} sddm plasma plasma-nm
 systemctl disable gdm
 systemctl enable sddm
+systemctl enable NetworkManager
 
 echo "*****************"
 echo "Grub installation"
@@ -31,8 +32,7 @@ useradd -m -g wheel -s /bin/bash login
 passwd login
 usermod -aG sudo login
 
-pacman -S firefox ark vlc qt4 dolphin git code \
-    konsole libreoffice-still python-virtualenv
+pacman -S firefox ark vlc qt4 dolphin git code konsole libreoffice-still python-virtualenv
 
 echo "***************************"
 echo "Nvidia drivers installation"
@@ -64,13 +64,12 @@ rm -rf latte-dock
 echo "**************************"
 echo "Infosec tools installation"
 pacman -S nmap tcpdump wireshark-qt openssh openvpn sqlmap
-wget https://portswigger.net/burp/releases/download?product=community&version=2020.2&type=Linux
 
 echo "**************************"
 echo "Google Chrome installation"
 git clone https://aur.archlinux.org/google-chrome.git
 cd google-chrome
 runuser -l login -c "makepkg -s"
-pacman -U google-chrome-*
+pacman -U google-chrome-*.tar.xz
 cd ..
 rm -rf google-chrome

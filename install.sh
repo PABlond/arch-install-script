@@ -1,13 +1,13 @@
 echo "*************************"
 lsblk
-echo "Partitioninig as follows:"
+echo "Partitioning as follows:"
 echo "/dev/sda"
 echo "-> /dev/sda1 8G SWAP"
 echo "-> /dev/sda2 /"
 echo "Press any key to continue..."
 read tmpvar
 
-sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk /dev/sda
+sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' <<EOF | fdisk /dev/sda
   o # clear the in memory partition table
   n # new partition
   p # primary partition
@@ -36,11 +36,13 @@ mount /dev/sda2 /mnt
 
 echo "******************"
 echo "Starting install.."
-pacstrap /mnt base base-devel linux linux-firmware net-tools wget
+pacman -S reflector
+reflector -c "FR" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
+pacstrap /mnt base base-devel linux linux-firmware net-tools wget sudo
 
 echo "**************"
 echo "Generate fstab"
-genfstab -U /mnt >> /mnt/etc/fstab
+genfstab -U /mnt >>/mnt/etc/fstab
 
 echo "************************"
 echo "Copy post install script"
@@ -57,4 +59,3 @@ echo "**********************************************"
 echo "Press any key to reboot or Ctrl+C to cancel..."
 read tmpvar
 reboot
-
