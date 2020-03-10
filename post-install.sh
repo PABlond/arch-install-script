@@ -35,6 +35,10 @@ echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
  
 pacman -S firefox ark vlc qt4 dolphin git code konsole libreoffice-still python-virtualenv
 
+echo "*****************************"
+echo "Java environment installation"
+pacman -S jre8-openjdk
+
 echo "***************************"
 echo "Nvidia drivers installation"
 pacman -S nvidia nvidia-settings
