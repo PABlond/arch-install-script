@@ -1,20 +1,20 @@
 ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 hwclock --systohc
-echo "LANG=en_US.UTF-8" >/etc/locale.conf
-echo "KEYMAP=fr-latin1" >/etc/vconsole.conf
-echo "homesec" >/etc/hostname
-echo "127.0.0.1 localhost" >>/etc/hosts
-echo "::1 localhost" >>/etc/hosts
-echo "127.0.1.1 homesec" >>/etc/hosts
-echo "en_US.UTF-8 UTF-8" >>/etc/locale.gen
-echo "fr_FR ISO-8859-1" >>/etc/locale.gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo "KEYMAP=fr-latin1" > /etc/vconsole.conf
+echo "homesec" > /etc/hostname
+echo "127.0.0.1 localhost" >> /etc/hosts
+echo "::1 localhost" >> /etc/hosts
+echo "127.0.1.1 homesec" >> /etc/hosts
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+echo "fr_FR ISO-8859-1" >> /etc/locale.gen
 locale-gen
 mkinitcpio -P
 passwd
 pacman -Syu
 
 echo "****************"
-echo "KDE installation"
+echo "Gnome installation"
 pacman -S xorg xorg-server gnome
 systemctl enable gdm.service
 systemctl enable NetworkManager
