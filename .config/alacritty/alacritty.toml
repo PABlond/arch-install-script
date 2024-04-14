@@ -1,0 +1,10 @@
+[colors.primary]
+background = "#151520"
+
+[keyboard]
+bindings = [{ key = "V", mods = "Control", action = "Paste" },
+{key = "C", mods = "Control", action = "Copy"}
+]
+
+[window]
+opacity = 0.93
