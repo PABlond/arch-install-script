@@ -2,7 +2,7 @@ vim.g.mapleader = ";"
 local keymap = vim.keymap
 
 keymap.set("n", "x", '"_x')
-
+keymap.set('n', '<leader>,', require('telescope.builtin').live_grep, {})
 keymap.set("n", "<leader>q", ":q<CR>")
 
 keymap.set("i", "jk", "<Esc>")
@@ -65,3 +65,6 @@ keymap.set("n", "<leader>n", ":Neorg workspace notes<CR>")
 
 -- Zen Mode
 keymap.set("n", "<space>z", ":ZenMode<CR>")
+
+-- Oil (menu)
+keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

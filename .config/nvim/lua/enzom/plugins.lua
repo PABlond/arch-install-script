@@ -8,21 +8,16 @@ local plugins = {
 		opts = {},
 	},
 	{ "folke/trouble.nvim" },
-	{ "folke/zen-mode.nvim" },
-	-- End of Folke's good stuff
-
-	{ "nvim-lua/plenary.nvim" },
 	{
 		"folke/todo-comments.nvim",
 		opts = {},
 	},
+    { "nvim-lua/plenary.nvim" },
 	{ "williamboman/mason.nvim" },
 	{ "nvimdev/lspsaga.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "onsails/lspkind.nvim" },
-	{ "ThePrimeagen/harpoon", name = "harpoon" },
 	{ "nvimtools/none-ls.nvim" },
-
 	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
 	{ "neovim/nvim-lspconfig" },
 	{ "hrsh7th/cmp-nvim-lsp" },
@@ -31,13 +26,6 @@ local plugins = {
 	{ "L3MON4D3/LuaSnip" },
 	{ "mrjones2014/smart-splits.nvim", lazy = true },
 	{ "kylechui/nvim-surround" },
-	{
-		"iamcco/markdown-preview.nvim",
-		ft = "markdown",
-		-- build = "cd app && yarn install",
-		build = ":call mkdp#util#install()",
-	},
-	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
@@ -130,6 +118,27 @@ local plugins = {
                     ruby = {'rubocop', 'ruby'},
                     lua = {'lua_language_server'}
                 }
+            end
+        },
+        {
+            "akinsho/bufferline.nvim",
+            version = "*",
+            dependencies = "nvim-tree/nvim-web-devicons",
+            config = function()
+                require("bufferline").setup()
+            end
+        },
+        {
+            'stevearc/oil.nvim',
+            opts = {},
+            dependencies = { "nvim-tree/nvim-web-devicons" },
+            config = function()
+                require("oil").setup({
+                    default_file_explorer = true,
+                    view_options = {
+                        show_hidden = true
+                    }
+                })
             end
         }
 }
