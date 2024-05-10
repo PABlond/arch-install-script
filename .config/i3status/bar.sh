@@ -5,9 +5,11 @@ echo '[]'
 (while :;
 do
   echo -n ",["
-  echo -n "{\"name\": \"id_hello\", \"background\": \"#ffffff\", \"full_text\": \"NVME : $(df -kh . | tail -n1 | awk '{print $5}')\"},"
-  echo -n "{\"name\":\"id_cpu\",\"background\":\"#ffffff\",\"full_text\":\"CPU : $(/home/login/.config/i3status/cpu.py)%\"},"
-  echo -n "{\"name\":\"id_time\",\"background\":\"#ffffff\",\"full_text\":\"$(date +'%Y-%m-%d %H:%M:%S')\"}"
+  echo -n "{\"name\": \"id_hello\", \"color\": \"#ffffff\", \"full_text\": \"NVME : $(df -kh . | tail -n1 | awk '{print $5}')\"},"
+  echo -n "{\"name\":\"id_cpu\",\"color\":\"#ffffff\",\"full_text\":\"CPU : $(/home/login/.config/i3status/cpu.py)%\"},"
+  echo -n "{\"name\":\"id_time\",\"color\":\"#ffffff\",\"full_text\":\"$(date +'%Y-%m-%d %H:%M:%S')\"},"
+  echo -n "{\"name\":\"id_reboot\",\"color\": \"#ffffff\", \"full_text\":\"REBOOT\"},"
+  echo -n "{\"name\":\"id_poweroff\",\"color\": \"#ffffff\", \"full_text\":\"POWEROFF\"}"
   echo -n "]"
   sleep 1
 done) &
@@ -24,5 +26,11 @@ do
   # CPU click
   elif [[ $line == *"name"*"id_cpu"* ]]; then
     alacritty -e htop &
+  
+  elif [[ $line == *"name"*"id_reboot"* ]]; then
+    alacritty -e poweroff &
+  
+  elif [[ $line == *"name"*"id_reboot"* ]]; then
+    alacritty -e reboot &
   fi
 done

@@ -189,28 +189,29 @@ bar {
 	position top
         status_command i3status
 	status_command exec /home/login/.config/i3status/bar.sh
-	i3bar_command i3bar --transparency
+	#i3bar_command i3bar --transparency
 	#mode hide
-	output primary
-	tray_output none
+	#output primary
+	#tray_output none
 	font pango:DejaVu Sans Mono 16
 	separator_symbol "⁞"
 	
 	colors {
-		background #ffffff
+	#	background #ffffff
     		statusline #000000
     		focused_workspace #000000 $bg-color #000000
     		active_workspace #000000 $bg-color #$bg-color
-    		inactive_workspace #000000 #666666 #ffffff
+    	#	inactive_workspace #000000 #666666 #ffffff
     		urgent_workspace #d33682 #d33682 #fdf6e3
 	}
 }
 
-exec_always feh --bg-scale /home/login/Pictures/wallpaper.jpg
+exec_always feh --bg-scale /home/login/.config/i3/wallpaper.jpg
 
 # Font to 1 or 0
 font pango:JetBrains Mono 16
 
 # Window borders to pixel 1
-new_window pixel 1
+new_window pixel 5
 new_float pixel 1
+workspace $ws10 output HDMI1
