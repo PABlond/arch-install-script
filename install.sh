@@ -44,7 +44,7 @@ genfstab -U /mnt >>/mnt/etc/fstab
 
 echo "************************"
 echo "Copy post install script"
-cp -rfv post-install.sh /mnt/root
+cp -r {post-install.sh,.zshrc,.xinitrc,.config} /mnt/root/
 chmod a+x /mnt/root/post-install.sh
 
 echo "******************************************************************************************************"
