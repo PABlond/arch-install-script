@@ -27,7 +27,7 @@ do
   elif [[ $line == *"name"*"id_cpu"* ]]; then
     alacritty -e htop &
   
-  elif [[ $line == *"name"*"id_reboot"* ]]; then
+  elif [[ $line == *"name"*"id_poweroff"* ]]; then
     alacritty -e poweroff &
   
   elif [[ $line == *"name"*"id_reboot"* ]]; then
