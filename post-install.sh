@@ -14,9 +14,8 @@ passwd
 pacman -Syu
 
 echo "****************"
-echo "Gnome installation"
-pacman -S xorg xorg-server gnome
-systemctl enable gdm.service
+echo "i3 installation"
+pacman -S xorg xorg-server i3-wm
 systemctl enable NetworkManager
 
 echo "*****************"
