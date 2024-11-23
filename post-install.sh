@@ -15,7 +15,7 @@ pacman -Syu
 
 echo "****************"
 echo "i3 installation"
-pacman -S xorg xorg-server i3-wm alacrity i3lock i3status i3blocks dmenu git feh
+pacman -S xorg xorg-server i3-wm alacrity i3lock i3status i3blocks dmenu git feh networkmanager network-manager-applet
 systemctl enable NetworkManager
 
 echo "*****************"
