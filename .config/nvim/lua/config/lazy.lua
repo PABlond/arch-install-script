@@ -12,12 +12,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
-
+vim.cmd.colorscheme "cyberdream"
 -- Oil 
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 -- Buffer management
 vim.keymap.set("n", "<leader>=", ':lua require("buffer_manager.ui").toggle_quick_menu()<CR>')
 vim.keymap.set("n", "<leader>q", ":bw!<CR>")
+-- Fzf
+vim.keymap.set("n", "<leader>sf", ":FzfLua grep<CR>")
+
+vim.opt.swapfile = false
 
 vim.api.nvim_set_keymap(
   "i", 
@@ -33,23 +37,3 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true }
 )
 
---vim.api.nvim_create_autocmd("BufWritePre", {
---  pattern = "*",
---  callback = function()
---    vim.fn["CocAction"]("format")
---  end,
---})
---vim.api.nvim_create_autocmd("BufWritePre", {
---  pattern = "*",
---  callback = function()
---    vim.lsp.buf.format({ async = false })
---  end,
---})
---
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.ts,*.tsx",
-  callback = function()
-    vim.cmd("silent !prettier --write %")
-    vim.cmd("edit") -- Recharge le fichier pour appliquer les changements
-  end,
-})
