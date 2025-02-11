@@ -5,6 +5,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-panel
+#exec --no-startup-id xbindkeys
 
 exec_always feh --bg-scale /home/alex/.config/i3/wallpaper.jpg
 exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
@@ -28,8 +29,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-#bindsym $mod+Return exec alacritty
-bindsym $mod+Return exec konsole -e tmux 
+bindsym $mod+Return exec alacritty -e tmux 
+#bindsym $mod+Return exec konsole -e tmux
 bindsym $mod+Shift+A kill
 
 bindsym $mod+d exec --no-startup-id dmenu_run
@@ -37,7 +38,6 @@ bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+m focus right
-
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -57,10 +57,6 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 bindsym $mod+f fullscreen toggle
-
-bindsym $mod+s layout stacking
-bindsym $mod+z layout tabbed
-bindsym $mod+e layout toggle split
 
 bindsym $mod+Shift+space floating toggle
 
@@ -123,3 +119,6 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 gaps inner 7px
 smart_gaps on
+
+
+
