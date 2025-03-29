@@ -5,9 +5,11 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-panel
+
+exec --no-startup-id xset s off -dpms
 #exec --no-startup-id xbindkeys
 
-exec_always feh --bg-scale /home/alex/.config/i3/wallpaper.jpg
+exec_always feh --bg-scale ~/.config/i3/wallpaper.jpg
 exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
 
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -21,6 +23,12 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+workspace $ws1 output DP-2  
+workspace $ws10 output HDMI-0 
+
+exec --no-startup-id i3-msg "workspace number $ws10"
+exec --no-startup-id i3-msg "workspace number $ws1"
 
 floating_modifier $mod
 tiling_drag modifier titlebar
@@ -88,6 +96,7 @@ bindsym $mod+Shift+agrave move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+Return exec "setxkbmap fr"
 
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -96,8 +105,8 @@ mode "resize" {
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym m resize grow width 10 px or 10 ppt
 
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Left resize shrink width 4 px or 10 ppt
+        bindsym Down resize grow height 4 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
