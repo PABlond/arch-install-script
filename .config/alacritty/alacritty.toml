@@ -1,54 +1,49 @@
-[[colors.indexed_colors]]
-color = "0xffbd5e"
-index = 16
+[general]
+live_config_reload = true
 
-[[colors.indexed_colors]]
-color = "0xff6e5e"
-index = 17
+[[keyboard.bindings]]
+key = "C"
+mods = "Control"
+action = "Copy"
 
-[colors.bright]
-black = "0x3c4048"
-blue = "0x5ea1ff"
-cyan = "0x5ef1ff"
-green = "0x5eff6c"
-magenta = "0xbd5eff"
-red = "0xff6e5e"
-white = "0xffffff"
-yellow = "0xf1ff5e"
+[[keyboard.bindings]]
+key = "V"
+mods = "Control"
+action = "Paste"
 
-[colors.normal]
-black = "0x16181a"
-blue = "0x5ea1ff"
-cyan = "0x5ef1ff"
-green = "0x5eff6c"
-magenta = "0xbd5eff"
-red = "0xff6e5e"
-white = "0xffffff"
-yellow = "0xf1ff5e"
+[[keyboard.bindings]]
+key = "X"
+mods = "Control"
+command = { program = "sh", args = ["-c", "alacritty --hold -e sh -c 'xclip -o | xclip -selection clipboard && xclip -selection clipboard -o | sed -e s/.// > /dev/null'"] }
 
 [colors.primary]
-background = "0x16181a"
-foreground = "0xffffff"
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[colors.normal]
+black   = "#45475a"
+red     = "#f38ba8"
+green   = "#a6e3a1"
+yellow  = "#f9e2af"
+blue    = "#89b4fa"
+magenta = "#f5c2e7"
+cyan    = "#94e2d5"
+white   = "#bac2de"
+
+[colors.bright]
+black   = "#585b70"
+red     = "#f38ba8"
+green   = "#a6e3a1"
+yellow  = "#f9e2af"
+blue    = "#89b4fa"
+magenta = "#f5c2e7"
+cyan    = "#94e2d5"
+white   = "#a6adc8"
 
 [colors.selection]
-background = "0x3c4048"
-foreground = "0xffffff"
-
-[keyboard]
-bindings = [{ key = "V", mods = "Control", action = "Paste" },
-{key = "C", mods = "Control", action = "Copy"}]
-
-[window]
-opacity = 0.9
+background = "#585b70"
+foreground = "#cdd6f4"
 
 [font]
-size = 10.0  # Ajuste la taille selon tes préférences
-[font.normal]
-family = "FiraCode Nerd Font"
-style = "Regular"
-[font.bold]
-family = "FiraCode Nerd Font"
-style = "Bold"
-[font.italic]
-family = "FiraCode Nerd Font"
-style = "Italic"
+normal = { family = "monospace", style = "Regular" }
+size = 12.0

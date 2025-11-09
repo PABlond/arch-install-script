@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gallois"
+ZSH_THEME="refined"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -102,25 +102,48 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-setxkbmap fr
-setxkbmap -option caps:escape
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
+export REST_FINANCE="$HOME/dev/rest-finance/mvp-monorepo"
+export ECOMMERCES="$HOME/dev/ecommerce/"
+# Nvidia, cuda & stuff
+export PATH=/opt/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
+export MAMBA_ROOT_PREFIX=~/.micromamba
+export PATH="$MAMBA_ROOT_PREFIX/bin:$PATH"
+
+setxkbmap fr
+setxkbmap -option caps:escape
+
+alias :q=exit 
+alias :c=clear
+alias docker-compose='docker compose'
+
+bindkey '^[[3;5~' kill-word
+
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba shell init' !!
+export MAMBA_EXE='/home/login/.local/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/home/login/micromamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
 fi
+unset __mamba_setup
+# <<< mamba initialize <<<
 
-export ANDROID_HOME=$HOME/Android/Sdk
-export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-export ANDROID_NDK_HOME=/home/login/Android/Sdk/ndk/29.0.13113456
-export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+alias claude="/home/login/.claude/local/claude"
 
-alias :q="exit"
-alias phone1="sudo systemctl restart waydroid-container.service && waydroid show-full-ui"
-alias phone2="~/Android/Sdk/emulator/emulator -avd Pixel_9 -no-boot-anim -no-audio -gpu swiftshader_indirect"
-alias api="cd ~/dev/coeur-a-gauche/app/api"
-alias mobile="cd ~/dev/coeur-a-gauche/app"
+# pnpm
+export PNPM_HOME="/home/login/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

@@ -151,20 +151,12 @@ mode "resize" {
 # Base:        #24273a
 # Mantle:      #1e2030
 # Crust:       #181926
-# Catppuccin Mocha Theme
-client.focused          #89b4fa #89b4fa #1e1e2e #cdd6f4 #89b4fa
-client.focused_inactive #313244 #313244 #1e1e2e #cdd6f4 #313244
-client.unfocused        #1e1e2e #1e1e2e #1e1e2e #6c7086 #1e1e2e
-client.urgent           #f38ba8 #f38ba8 #1e1e2e #1e1e2e #f38ba8
-client.placeholder      #1e1e2e #1e1e2e #cdd6f4 #1e1e2e #1e1e2e
 
-
-# Matrix Theme (green on black) 
-#client.focused          #00ff00 #00ff00 #000000 #00ff00 #00ff00
-#client.focused_inactive #003300 #003300 #000000 #00ff00 #003300
-#client.unfocused        #000000 #000000 #003300 #00ff00 #000000
-#client.urgent           #00ff00 #00ff00 #000000 #000000 #00ff00
-#client.placeholder      #000000 #000000 #00ff00 #000000 #000000
+client.focused          #8aadf4 #8aadf4 #24273a #cad3f5 #8aadf4
+client.focused_inactive #363a4f #363a4f #cad3f5 #8087a2 #363a4f
+client.unfocused        #181926 #181926 #a5adcb #5b6078 #181926
+client.urgent           #ed8796 #ed8796 #24273a #f4dbd6 #ed8796
+client.placeholder      #1e2030 #1e2030 #cad3f5 #1e2030 #1e2030
 
 gaps inner 7px
 smart_gaps on

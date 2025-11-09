@@ -1,5 +1,5 @@
 set $mod Mod1
-font pango:monospace 16
+font pango:monospace 16 
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -24,21 +24,20 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-workspace $ws1 output DP-2
-workspace $ws10 output HDMI-0
+workspace $ws1 output DP-2  
+workspace $ws10 output HDMI-0 
 
 exec --no-startup-id i3-msg "workspace number $ws10"
 exec --no-startup-id i3-msg "workspace number $ws1"
 
 floating_modifier $mod
 tiling_drag modifier titlebar
-
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec alacritty -e tmux 
 #bindsym $mod+Return exec konsole -e tmux
 bindsym $mod+Shift+A kill
 
@@ -121,51 +120,14 @@ mode "resize" {
 #        status_command i3status
 #}
 
-# Catppuccin Macchiato colors
-# https://github.com/catppuccin/catppuccin
-
-# Macchiato palette
-# Rosewater:   #f4dbd6
-# Flamingo:    #f0c6c6
-# Pink:        #f5bde6
-# Mauve:       #c6a0f6
-# Red:         #ed8796
-# Maroon:      #ee99a0
-# Peach:       #f5a97f
-# Yellow:      #eed49f
-# Green:       #a6da95
-# Teal:        #8bd5ca
-# Sky:         #91d7e3
-# Sapphire:    #7dc4e4
-# Blue:        #8aadf4
-# Lavender:    #b7bdf8
-# Text:        #cad3f5
-# Subtext1:    #b8c0e0
-# Subtext0:    #a5adcb
-# Overlay2:    #939ab7
-# Overlay1:    #8087a2
-# Overlay0:    #6e738d
-# Surface2:    #5b6078
-# Surface1:    #494d64
-# Surface0:    #363a4f
-# Base:        #24273a
-# Mantle:      #1e2030
-# Crust:       #181926
-# Catppuccin Mocha Theme
-client.focused          #89b4fa #89b4fa #1e1e2e #cdd6f4 #89b4fa
-client.focused_inactive #313244 #313244 #1e1e2e #cdd6f4 #313244
-client.unfocused        #1e1e2e #1e1e2e #1e1e2e #6c7086 #1e1e2e
-client.urgent           #f38ba8 #f38ba8 #1e1e2e #1e1e2e #f38ba8
-client.placeholder      #1e1e2e #1e1e2e #cdd6f4 #1e1e2e #1e1e2e
-
-
-# Matrix Theme (green on black) 
-#client.focused          #00ff00 #00ff00 #000000 #00ff00 #00ff00
-#client.focused_inactive #003300 #003300 #000000 #00ff00 #003300
-#client.unfocused        #000000 #000000 #003300 #00ff00 #000000
-#client.urgent           #00ff00 #00ff00 #000000 #000000 #00ff00
-#client.placeholder      #000000 #000000 #00ff00 #000000 #000000
+client.focused          #21BA18 #3C772F #FFFFFF #2E9EF4   #285577
+client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
+client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 gaps inner 7px
 smart_gaps on
+
+
 

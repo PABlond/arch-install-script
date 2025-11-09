@@ -1,0 +1,51 @@
+[[keyboard.bindings]]
+key = "C"
+mods = "Control"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "X"
+mods = "Control"
+command = { program = "sh", args = ["-c", "alacritty --hold -e sh -c 'xclip -o | xclip -selection clipboard && xclip -selection clipboard -o | sed -e s/.// > /dev/null'"] }
+
+[colors.primary]
+background = "0x1e1e2e"
+foreground = "0xcdd6f4"
+
+[colors.normal]
+black = "0x45475a"
+red = "0xf38ba8"
+green = "0xa6e3a1"
+yellow = "0xf9e2af"
+blue = "0x89b4fa"
+magenta = "0xf5c2e7"
+cyan = "0x94e2d5"
+white = "0xbac2de"
+
+[colors.bright]
+black = "0x585b70"
+red = "0xf38ba8"
+green = "0xa6e3a1"
+yellow = "0xf9e2af"
+blue = "0x89b4fa"
+magenta = "0xf5c2e7"
+cyan = "0x94e2d5"
+white = "0xa6adc8"
+
+[[colors.indexed_colors]]
+index = 16
+color = "0xf5e0dc"
+
+[[colors.indexed_colors]]
+index = 17
+color = "0xf38ba8"
+
+[colors.selection]
+background = "0x585b70"
+foreground = "0xcdd6f4"
+
